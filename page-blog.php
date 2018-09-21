@@ -54,6 +54,7 @@
 							</div>
 						</div>
 					</div>
+					<?php //the_tags(' • ', ' • ', '<br />') ?>
 					<div class='description-blog'>
 						<p><?php the_content('<a>'); ?></p>
 						<a class='button' href='<?php the_permalink(); ?>'>Read More</a>

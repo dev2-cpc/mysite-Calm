@@ -109,7 +109,7 @@
                         ?>
 
                     <div class="add__photo">
-                        <img src="<?php echo $source[sizes][medium]; ?>" />
+                        <a href='<?php the_permalink(); ?>'><img src="<?php echo $source[sizes][medium]; ?>" /></a>
                     </div>
                     
                     <?php endwhile; ?>
@@ -123,12 +123,6 @@
 				?>
         </div>
     
-
-
-
-
-
-
         <div class='sidebar-flickr'>
             <p>Flickr Images</p>
             <div class='flickr__image'>
