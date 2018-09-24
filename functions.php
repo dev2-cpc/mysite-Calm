@@ -30,19 +30,14 @@ if( function_exists('acf_add_options_page') ) {
     'redirect'    => false
   ));
   
-  acf_add_options_sub_page(array(
-    'page_title'  => 'Subpage',
-    'menu_title'  => 'Subpage',
-    'parent_slug' => 'theme-general-settings',
-  ));
+  //acf_add_options_sub_page(array(
+  //  'page_title'  => 'Subpage',
+  //  'menu_title'  => 'Subpage',
+  //  'parent_slug' => 'theme-general-settings',
+  //));
   
   
 } 
-
-
-function i($arg){
-  echo "<svg class=\"icon icon-$arg\"><use xlink:href=\"".get_bloginfo('template_directory')."/img/sprite.svg#icon-$arg\"></use></svg>";
-}
 
 add_filter('mce_buttons', 'mce_page_break');
 function mce_page_break( $mce_buttons ){

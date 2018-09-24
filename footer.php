@@ -2,18 +2,8 @@
         <div id='block3'>
             <div class='page-footer'>
                 <div class='page-footer-about'>
-                    <h3>ABOUT US</h3>
-                    <p>Duis id eros ac eros cursus gravida a non magna. 
-                        Sed vitae nisl diam, non sollicitudin mi. In dui arcu, 
-                        rhoncus ac consequat eget, cursus sit amet risus.
-                        <br>
-                        <br>Address: Street 9890, New Something 1234, 
-                        <br>Country
-                        <br>
-                        <br>Telephone: 1234 5678
-                        <br>
-                        <br>Fax: 9876 5432
-                    </p>
+                    <h3><?php the_field('footer_title','options')?></h3>
+                    <p><?php the_field('footer_about_text','options')?></p>
                     <div class='page-footer-social'>
                         <a href='#' target='_blank'><img src='<?php echo get_template_directory_uri(); ?>/img/header-twitter.png' /></a>
                         <a href='#' target='_blank'><img src='<?php echo get_template_directory_uri(); ?>/img/header-FB.png' /></a>
@@ -24,22 +14,34 @@
                 </div>
                 <div class='page-footer-posts'>
                     <h3>LATEST POSTS</h3>
-                    <div class='post-1'>
-                        <p>Curabitur pharetra, ante!</p>
-                        <span>25 April 2013</span>
+                        <?php
+
+                        $args = array(
+                            'post_type' => 'blog_1'
+                        );
+                            
+                        $my_query = new WP_Query( $args );
+                            
+                        if ( $my_query->have_posts() ) {
+                            
+                            while ( $my_query->have_posts() ) {
+                                if ($i == 4) 
+                                    break;
+                                $i++;
+                        $my_query->the_post();
+                        ?>
+
+                    <div class='post'>
+                        <a href='<?php the_permalink(); ?>'>
+                            <p><?php the_title(); ?></p>
+                            <span><?php the_time('j F Y') ?></span>
+                        </a>
                     </div>
-                    <div class='post-2'>
-                        <p>Gentle Marimba by Alastair Cameron</p>
-                        <span>01 May 2013</span>
-                    </div>
-                    <div class='post-3'>
-                        <p>Curabitur pharetra, ante!</p>
-                        <span>25 April 2013</span>
-                    </div>
-                    <div class='post-4'>
-                        <p>Gentle Marimba by Alastair Cameron</p>
-                        <span>01 May 2013</span>
-                    </div>
+                    
+                    <?php
+                        } // end while
+                            } // end if
+                    ?>
                 </div>
                 <div class='page-footer-comments'>
                     <h3>LATEST COMMENTS</h3>

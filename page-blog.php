@@ -44,7 +44,7 @@
 							<a href='#'><img src='<?php echo get_template_directory_uri(); ?>/img/blog-main-edit-icon.png' /></a>
 						</div>
 						<div class='caption-name'>
-							<h2><?php the_title(); ?></h2>
+							<h2><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h2>
 							<div class='caption-sub-name'>
 								<p><img src='<?php echo get_template_directory_uri(); ?>/img/blog-main-calendar-icon.png' /> <?php the_time('F j, Y') ?></p>
 								<p><img src='<?php echo get_template_directory_uri(); ?>/img/blog-main-sms-icon.png' /> 12 Comments</p>
@@ -54,7 +54,7 @@
 							</div>
 						</div>
 					</div>
-					<?php //the_tags(' • ', ' • ', '<br />') ?>
+					<?php the_tags("<i class='fa fa-tag'></i> ", ' • ', '<br />') ?>
 					<div class='description-blog'>
 						<p><?php the_content('<a>'); ?></p>
 						<a class='button' href='<?php the_permalink(); ?>'>Read More</a>

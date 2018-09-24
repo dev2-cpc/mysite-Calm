@@ -6,7 +6,7 @@
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php if ( 'post' == get_post_type() ) : // Only display post date and author if this is a Post, not a Page. ?>
 			<div class="entry-meta">
-				<?php shape_posted_on(); ?>
+				
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</div>
@@ -35,36 +35,7 @@
 					<?php endif; ?>
 				
 					<?php /* Show the post's tags, categories, and a comment link. */ ?>
-					<footer class="entry-meta">
-						<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for Pages in Search results ?>
-						<?php
-							/* translators: used between list items, there is a space after the comma */
-							$categories_list = get_the_category_list( __( ', ', 'shape' ) );
-							if ( $categories_list && shape_categorized_blog() ) :
-						?>
-						<span class="cat-links">
-							<?php printf( __( 'Posted in %1$s', 'shape' ), $categories_list ); ?>
-						</span>
-						<?php endif; // End if categories ?>
-				
-						<?php
-							/* translators: used between list items, there is a space after the comma */
-							$tags_list = get_the_tag_list( '', __( ', ', 'shape' ) );
-							if ( $tags_list ) :
-						?>
-							<span class="sep"> | </span>
-							<span class="tag-links">
-									<?php printf( __( 'Tagged %1$s', 'shape' ), $tags_list ); ?>
-							</span>
-							<?php endif; // End if $tags_list ?>
-						<?php endif; // End if 'post' == get_post_type() ?>
-				
-						<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-						<span class="sep"> | </span>
-						<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'shape' ), __( '1 Comment', 'shape' ), __( '% Comments', 'shape' ) ); ?></span>
-						<?php endif; ?>
-
-					</footer><!-- .entry-meta -->
+					
 					<?php /* Close up the article and end the loop. */ ?>
 				</article><!-- #post-<?php the_ID(); ?> -->
 				<?php endwhile; ?>

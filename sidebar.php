@@ -140,20 +140,15 @@
         <div class='sidebar-tags'>
             <p>Tags</p>
             <div class='sidebar-tags__buttons'>
-                <a class='btn' href='#'>Art</a>
-                <a class='btn' href='#'>Awesome</a>
-                <a class='btn' href='#'>Classic</a>
-                <a class='btn' href='#'>Photo</a>
-
-                <a class='btn' href='#'>Wordpress</a>
-                <a class='btn' href='#'>Videos</a>
-                <a class='btn' href='#'>Standard</a>
-                <a class='btn' href='#'>Gaming</a>
-
-                <a class='btn' href='#'>Art</a>
-                <a class='btn' href='#'>Awesome</a>
-                <a class='btn' href='#'>Classic</a>
-                <a class='btn' href='#'>Photo</a>
+                                                
+                <?php   
+                    $tag_array = get_tags('blog_1');
+                                        
+                foreach ($tag_array as $tag) 
+                {
+                    echo '<a href="http://mysite.loc/blog/'.$tag->name.'" class="btn">'.$tag->name.'</a>'."\n";
+                }
+                ?>
             </div>
         </div>
 
